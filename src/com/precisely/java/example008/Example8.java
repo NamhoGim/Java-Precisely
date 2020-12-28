@@ -1,3 +1,4 @@
+package com.precisely.java.example008;
 // Example 8 from page 11 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -11,7 +12,7 @@ class Example8 {
         String s1 = "abc";
         String s2 = s1 + "";        // New object, but contains same text as s1
         String s3 = s1;             // Same object as s1
-        String s4 = s1;  // Same object as s1
+        String s4 = s1;             // Same object as s1
         // The following statements print false, true, true, true, true:
         System.out.println("s1 and s2 identical objects: " + (s1 == s2));
         System.out.println("s1 and s3 identical objects: " + (s1 == s3));

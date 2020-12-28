@@ -1,3 +1,4 @@
+package com.precisely.java.example006;
 // Example 6 from page 9 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -15,4 +16,3 @@ class Example6 {
         System.out.println(maxyz);
     }
 }
-

@@ -1,6 +1,8 @@
+package com.precisely.java.example012;
 // Example 12 from page 11 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
+import com.precisely.java.example027.Point;
 
 class Example12 {
     public static void main(String[] args) {
