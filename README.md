@@ -42,7 +42,7 @@ Avoid dollar signs in class and interface names. Uppercase letters and lowercase
 A legal name cannot be one of the following _reserved names_:
 
 | `abstract` | `char`    | `else`    | `for`        | `interface` | `protected` | `switch`       | `try`      |
-|------------|-----------|-----------|--------------|-------------|-------------|----------------|------------|
+|------------:|-----------:|-----------:|--------------:|-------------:|-------------:|----------------:|------------:|
 | `assert`   | `class`   | `enum`    | `goto`       | `long`      | `public`    | `synchronized` | `void`     |
 | `boolean`  | `const`   | `extends` | `if`         | `native`    | `return`    | `this`         | `volatile` |
 | `byte`     | `default` | `final`   | `import`     | `null`      | `static`    | `throw`        |            |
@@ -63,3 +63,27 @@ composite names are separated by underscores(_). Examples: `CENTER`, `MAX_VALUE`
   
 * Package names are sequences of dot-separated lowercase names. Examples: `java.awt.event`.
 For uniqueness, they are often prefixed with reverse domain names, as in `com.sun.xml.util`.
+  
+# 4. Comments and Program Layout
+# 5. Type
+
+A _type_ is a set of values and operations on them. A type is either a primitive type or a reference type.
+
+## 5.1. Primitive Types
+
+A _primitive type_ is either `boolean` or one of the _numeric types_ `char`, `byte`, `short`, `int`, `long`, `float`, or `double`.
+
+## 5.2. Reference Types
+
+A _reference type_ is a class type defined by a class declaration(section 9.1),
+or an interface type defined by and interface declaration(section 13.1), or and array type(section 5.3), or an enum type(chapter 14).
+
+## 5.3. Array Types
+
+An _array type_ has the form `t[]`, where `t` is any type. An array type `t[]` is a reference type.
+Hence a value of array type `t[]` is ether `null` or a reference to an array whose element type is precisely `t`(when `t` is a primitive type),
+or is a subtype of `t`(when `t` is a reference type).
+
+## 5.4. Boxing: Wrapping Primitive Types as Reference Types
+
+For every primitive type there is a corresponding wrapper class, which is a reference type.
