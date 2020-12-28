@@ -1,11 +1,12 @@
+package com.precisely.java.example027;
 // Example 27 from page 23 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 
-class Point {
+public class Point {
     int x, y;
 
-    Point(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -14,7 +15,7 @@ class Point {
         this(p.x, p.y);
     }    // calls the above constructor
 
-    void move(int dx, int dy) {
+    public void move(int dx, int dy) {
         x += dx;
         y += dy;
     }
