@@ -1,3 +1,4 @@
+package com.precisely.java.example017;
 // Example 17 from page 15 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -14,10 +15,9 @@ class Example17 {
         PrintWriter wr =
                 new PrintWriter(new OutputStreamWriter(System.out, StandardCharsets.ISO_8859_1));
         double d = 1234567.9;
-        wr.format(Locale.US, "%,.2f%n", d);        // en_US locale
+        wr.format(Locale.US, "%,.2f%n", d);             // en_US locale
         wr.format(Locale.GERMANY, "%,.2f%n", d);        // de_DE locale
-        wr.format(Locale.FRANCE, "%,.2f%n", d);        // fr_FR locale
+        wr.format(Locale.FRANCE, "%,.2f%n", d);         // fr_FR locale
         wr.flush();
     }
 }
-

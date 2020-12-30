@@ -14,4 +14,3 @@ class Example12 {
         System.out.println("p2 is " + p2);        // Prints: p2 is (37, 47)
     }
 }
-

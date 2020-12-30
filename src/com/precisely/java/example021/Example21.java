@@ -1,3 +1,4 @@
+package com.precisely.java.example021;
 // Example 21 from page 17 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -6,7 +7,7 @@ import java.util.Random;
 class Example21 {
     public static void main(String[] args) {
         if (args.length != 1)
-            System.out.println("Usage: java Example21 <length>\n");
+            System.out.println("Usage: java com.precisely.java.example021.Example21 <length>\n");
         else {
             System.out.println("Timing character replacement in a string:");
             Random rnd = new Random();
@@ -47,4 +48,3 @@ class Example21 {
         }
     }
 }
-

@@ -2,7 +2,6 @@ package com.precisely.java.example011;
 // Example 11 from page 11 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Example11 {
     public static void main(String[] args) {
         String[] ss0 = {"", "abde", "abdf", "b"};
@@ -22,4 +21,3 @@ class Example11 {
         return true;
     }
 }
-

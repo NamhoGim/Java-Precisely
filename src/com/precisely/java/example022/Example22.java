@@ -1,6 +1,6 @@
+package com.precisely.java.example022;
 // Example 22 from page 19 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
-
 
 class Example22 {
     public static void main(String[] args) {
@@ -31,4 +31,3 @@ class Example22 {
         double[][] t3 = new double[][]{{0.0}, {0.0, 0.0}, {0.0, 0.0, 0.0}};
     }
 }
-

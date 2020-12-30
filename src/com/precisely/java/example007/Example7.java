@@ -2,7 +2,6 @@ package com.precisely.java.example007;
 // Example 7 from page 9 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Scope {
                             // no x in scope
     void m1(int x) {        // declaration of parameter x (#1)
@@ -43,4 +42,3 @@ class Scope {
         x = 7;
     }                       // x #5 in scope
 }
-

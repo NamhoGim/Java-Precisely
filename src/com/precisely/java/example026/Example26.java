@@ -1,11 +1,11 @@
-// Example 25 from page 21 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example026;// Example 26 from page 21 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-class Example25 {
+class Example26 {
     public static void main(String[] args) {
         brownian1D(10_000_000);
         brownian2D(10_000_000);
@@ -91,5 +91,4 @@ class Example25 {
         }
     }
 }
-
 

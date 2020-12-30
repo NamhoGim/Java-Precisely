@@ -2,7 +2,6 @@ package com.precisely.java.example002;
 // Example 2 from page 3 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Example2 {                                    // Class declaration
     int x;
 
@@ -43,4 +42,3 @@ class Example2 {                                    // Class declaration
         return (day >= 1) && (day <= length);
     }
 }
-

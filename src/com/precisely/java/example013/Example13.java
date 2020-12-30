@@ -1,6 +1,6 @@
+package com.precisely.java.example013;
 // Example 13 from page 13 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
-
 
 class Example13 {
     public static void main(String[] args) {
@@ -8,4 +8,3 @@ class Example13 {
         System.out.println(res);
     }
 }
-

@@ -1,3 +1,4 @@
+package com.precisely.java.example015;
 // Example 15 from page 15 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -9,4 +10,3 @@ class Example15 {
         System.out.format("%1$tF %1$tR%n", date);
     }
 }
-

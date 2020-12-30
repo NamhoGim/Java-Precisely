@@ -1,6 +1,5 @@
-// Example 23 from page 19 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example023;// Example 23 from page 19 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
-
 
 class Example23 {
     public static void main(String[] args) {
@@ -44,4 +43,3 @@ class Example23 {
             }
     }
 }
-

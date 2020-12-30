@@ -2,7 +2,6 @@ package com.precisely.java.example004;
 // Example 4 from page 7 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Example4 {
     public static void main(String[] args) {
         int i1 = 1000111222, i2 = 40000, i3 = -1;
@@ -26,4 +25,3 @@ class Example4 {
         System.out.println(i1 + " " + i2);
     }
 }
-

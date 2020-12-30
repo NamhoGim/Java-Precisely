@@ -2,7 +2,6 @@ package com.precisely.java.example010;
 // Example 10 from page 11 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Example10 {
     public static void main(String[] args) {
         System.out.println(ecount(""));
@@ -18,4 +17,3 @@ class Example10 {
         return ecount;
     }
 }
-

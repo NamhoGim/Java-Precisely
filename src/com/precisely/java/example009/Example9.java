@@ -2,7 +2,6 @@ package com.precisely.java.example009;
 // Example 9 from page 11 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Example9 {
     public static void main(String[] args) {
         String res = "";
@@ -11,4 +10,3 @@ class Example9 {
         System.out.println(res);
     }
 }
-

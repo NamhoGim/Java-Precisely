@@ -1,3 +1,4 @@
+package com.precisely.java.example024;
 // Example 24 from page 21 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -114,5 +115,4 @@ class Example24 {
         }
     }
 }
-
 

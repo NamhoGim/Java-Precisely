@@ -2,7 +2,6 @@ package com.precisely.java.example008;
 // Example 8 from page 11 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Example8 {
     public static void main(String[] args) {
         equalityAndPlus();
@@ -24,4 +23,3 @@ class Example8 {
         System.out.println("A" + 10 + 25);  // Same as ("A" + 10) + 25
     }
 }
-

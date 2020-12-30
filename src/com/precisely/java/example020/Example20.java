@@ -1,6 +1,6 @@
+package com.precisely.java.example020;
 // Example 20 from page 17 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
-
 
 class Example20 {
     public static void main(String[] args) {
@@ -14,4 +14,3 @@ class Example20 {
         return (mth >= 1) && (mth <= 12) && (day >= 1) && (day <= days[mth - 1]);
     }
 }
-

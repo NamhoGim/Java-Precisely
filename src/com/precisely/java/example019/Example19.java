@@ -1,12 +1,12 @@
+package com.precisely.java.example019;
 // Example 19 from page 17 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
-
 class Example19 {
     public static void main(String[] args) {
-        Number[] a = new Integer[10];       // Length 10, element type Integer
-        Double d = new Double(3.14);        // Type Double,  class Double
-        Integer i = new Integer(117);       // Type Integer, class Integer
+        Number[] a = new Integer[10];           // Length 10, element type Integer
+        Double d = new Double(3.14);       // Type Double,  class Double
+        Integer i = new Integer(117);      // Type Integer, class Integer
         Number n = i;                       // Type Number,  class Integer
         a[0] = i;                           // OK, Integer is subtype of Integer
         a[1] = n;                           // OK, Integer is subtype of Integer
@@ -15,4 +15,3 @@ class Example19 {
         System.out.println("should never get here");
     }
 }
-
