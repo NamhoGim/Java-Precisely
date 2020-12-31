@@ -88,9 +88,9 @@ or is a subtype of `t`(when `t` is a reference type).
 
 For every primitive type there is a corresponding wrapper class, which is a reference type.
 
-## 5.5 Subtypes and compatibility
+## 5.5. Subtypes and compatibility
 
-## 5.6 Signatures and Subsumption
+## 5.6. Signatures and Subsumption
 
 ## 5.7 Type Conversion
 
