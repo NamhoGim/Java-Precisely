@@ -87,3 +87,30 @@ or is a subtype of `t`(when `t` is a reference type).
 ## 5.4. Boxing: Wrapping Primitive Types as Reference Types
 
 For every primitive type there is a corresponding wrapper class, which is a reference type.
+
+## 5.5 Subtypes and compatibility
+
+## 5.6 Signatures and Subsumption
+
+## 5.7 Type Conversion
+
+# 6. Variables, Parameters, Fields, and Scope
+
+A _variable_ is declared inside a method, constructor, initializer block, or block statement (section 12.2).
+The variable can be used only in that block statement (or method or constructor or initializer block), and only after its declaration.
+
+A _parameter_ is a special kind of variable: it is declared in the parameter list of a method or constructor,
+and is given a value when the method or constructor is called. The parameter can be used only in that method or constructor.
+
+A _field_ is declared inside a class, but not inside a method or constructor or initializer block of the class.
+It can be used anywhere in the class, also textually before its declaration.
+
+# 7. Strings
+
+A _string_ is an object of the predefined class String. It is immutable: one created it cannot be changed.
+
+# 8. Arrays
+
+An _array_ is an indexed collection of variables, called _elements_. An array has a given _length l ≥ 0_ and a given _element type t_.
+The elements are indexed by the integers _0, 1, ..., l-1_. The value of an expression of array type `u[]` is ether `null`
+or a reference to an array whose element type `t` is a subtype of `u`. If `u` is a primitive type, then `t` must equal `u`.
