@@ -236,7 +236,19 @@ declared in a class declaration. A _field-declaration_ has one of the forms
 
 The _field-modifiers_ may be a list of the modifiers `static`, `final`, `transient` (section 26.12), and `volatile`,
 and at most one of the access modifiers `private`, `protected`, `public` (section 9.7).
+
 If a field `f` in class `C` is declared `static`, then `f` is associated with class `C` and can be referred to independently of any object of class `C`.
+A _field initializer_ may be an expression or an array initializer (section 8.2). A static field initializer can refer only to static members of `C`
+an can throw no checked exceptions (chapter 15).
+
+Static fields are initialized when the class is loaded. First all static fields are givien default initial values;
+then the static initializer blocks (section 9.13) and static field initializers are executed, in order of appearance.
+
+Non-static fields are initialized when a constructor is called, at which time all static fields have been initialized already (section 9.10).
+
+If a class `C` declares a non-static field `f`, and `C` is a sub-class of a class `B` that has a non-static field `f`,
+then every object of class `C` has two fields, both called `f`: one is the `B`-field `f` declared in the superclass `B`,
+and one is the `C` field `f` declared in `C` itself. What field is referred to by a field access `o.f` is determined by the compile-type type of `o` (section 11.9).
 
 ## 9.7. The Member Access Modifiers `private`, `protected`, `public`
 
