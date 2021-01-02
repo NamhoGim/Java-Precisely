@@ -25,6 +25,7 @@ class Example21 {
         }
     }
 
+    // Creating a String from a Character Array
     static String replaceCharChar(String s, char c1, char c2) {
         char[] res = new char[s.length()];
         for (int i = 0; i < s.length(); i++)

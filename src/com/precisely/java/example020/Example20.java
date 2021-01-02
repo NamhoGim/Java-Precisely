@@ -8,6 +8,7 @@ class Example20 {
         System.out.println("April 31 is legal:  " + checkdate(4, 31));
     }
 
+    // Using an Initialized Array
     static int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     static boolean checkdate(int mth, int day) {

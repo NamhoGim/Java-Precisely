@@ -1,4 +1,5 @@
-package com.precisely.java.example026;// Example 26 from page 21 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example026;
+// Example 26 from page 21 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.Arrays;

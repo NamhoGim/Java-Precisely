@@ -90,9 +90,25 @@ For every primitive type there is a corresponding wrapper class, which is a refe
 
 ## 5.5. Subtypes and compatibility
 
+A type `t1` may be a _subtype_ of a type `t2`, in which case `t2` is a _supertype_ of `t1`.
+The following rules determine when a type `t1` is a subtype of a type `t2`:
+
+* Every type is a subtype of itself.
+* If `t1` is a subtype of `t2`, and `t2` is a subtype of `t3`, then `t1` is a subtype of `t3`.
+* if `t1` and `t2` are primitive types, and there is widening (W or L) conversion from `t1` to `t2` according to the table apposite, then `t1` is a subtype of `t2`.
+* If `t1` and `t2` are classes, then `t1` is a subtype of `t2` if `t1` is subclass of `t2`.
+* If `t1` and `t2` are interfaces, then `t1` is a subtype of `t2` if `t1` is a subinterface of `t2`.
+* If `t1` is a class and `t2` is an interface, then `t1` is a subtype of `t2` provided that `t1` (is subclass of a class that) implements `t2` or implements a subinterface of `t2`.
+* Array type `t1[]` is a subtype of array type `t2[]` if reference type `t1` is a subtype of reference type `t2`.
+* Any reference type `t`, including any array type, is also a subtype of predefined _class_ Object.
+
 ## 5.6. Signatures and Subsumption
 
-## 5.7 Type Conversion
+## 5.7. Type Conversion
+
+A _type conversion_ converts a value from on type to another. A _widening_ conversion converts from a type to a supertype (or the type itself).
+A _narrowing_ conversion converts from a type to another type. A narrowing conversion requires an explicit _type cast_ (section 11.11),
+except in an assignment `x = e` or initialization where `e` is a compile-time integer constants (section 11.5).
 
 # 6. Variables, Parameters, Fields, and Scope
 
@@ -105,6 +121,16 @@ and is given a value when the method or constructor is called. The parameter can
 A _field_ is declared inside a class, but not inside a method or constructor or initializer block of the class.
 It can be used anywhere in the class, also textually before its declaration.
 
+## 6.1 Values Bound to Variables, Parameters, or Fields
+
+## 6.2 Variable Declarations
+
+The purpose of a variable is to hold a value during the execution of a block statement (or method or constructor or initializer block).
+A _variable-declaration_ has one of the forms
+
+    variable-modifier type varname1, varname2, ... ;
+    variable-modifier type varname1 = initializer, ... ;
+
 # 7. Strings
 
 A _string_ is an object of the predefined class String. It is immutable: one created it cannot be changed.
@@ -114,3 +140,114 @@ A _string_ is an object of the predefined class String. It is immutable: one cre
 An _array_ is an indexed collection of variables, called _elements_. An array has a given _length l ≥ 0_ and a given _element type t_.
 The elements are indexed by the integers _0, 1, ..., l-1_. The value of an expression of array type `u[]` is ether `null`
 or a reference to an array whose element type `t` is a subtype of `u`. If `u` is a primitive type, then `t` must equal `u`.
+
+## 8.1. Array Creation and Access
+
+A new array of length _l_ with element type `t` is created (allocated) using an _array creation expression_:
+
+```
+new t[l]
+```
+
+## 8.2. Array Initializers
+
+A variable or field of array type may be initialized at declaration, using an existing array or an _array initailizer_
+for the initial value. An array initializer is a comma-separated list of zero or more expression enclosed in braces `{ ... }`:
+
+
+    t[] x = { expression, ..., expression };
+
+
+The type of each _expression_ must be a subtype of `t`. Evaluation of the initializer causes a distinct new array,
+whose length equals the number of expressions, to be allocated.
+
+Array initializer may also be used in connection with array creation expressions:
+
+
+    new t[] { expression, ..., expression }
+
+
+## 8.3. Multidimensional Arrays
+
+## 8.4. The Utility Class Arrays
+
+# 9. Classes
+
+## 9.1. Class Declarations and Class Bodies
+
+A _class-declaration_ of class `C` has the form
+
+    class-modifiers class C extends-clause implements-clause
+        class-body
+
+A declaration of class `C` introduces a new reference type `C`. The _class body_ may contain declaration of fields,
+constructors, methods, nested classes, nested interfaces, and initializer blocks.
+A class declaration may take type parameters and be generic; see section 21.4. The declarations in a class may appear in any order:
+
+    {
+        field-declarations
+        constructor-declarations
+        method-declarations 
+        class-declarations
+        interface-declarations
+        enum-type-declaration
+        intiializer-blocks
+    }
+
+A field, method, nested class, nested interface, or nested enum type is called a _member_ of the class. A member may be declared `static`.
+A non-static member is also called an _instance member_.
+
+## 9.2. Top-Level Classes, Nested Classes, Member Classes, and Local Classes
+
+A _top-level class_ is a class declared outside any other class or interface declaration.
+A _nested class_ is a class declared inside another class or interface. There are two kinds of nested classes:
+a _local class_ is declared inside a method, constructor, or initializer block; a _member class_ is not.
+A non-static member class, or a local class in a non-static member, is called an _inner class_,
+because an object of the inner class will contain a reference to an object of the enclosing class. See also section 9.11.
+
+## 9.3. Class Modifiers
+
+For a **top-level class**, the _class-modifiers_ may be a list of `public` and at most one of `abstract` or `final`.
+For a **member class**, they may be a list of `static`, at most one of `abstract` or `final`, and at most one of `private`
+`protected`, or `public`. For a **local class**, they may be at most one of `abstract` or `final`.
+
+## 9.4. The Class Modifiers `pulbic`, `final`, `abstract`
+
+* If a top-level class `C` is declared `public`, then it is accessible also outside its package (chapter 17). 
+* If a class `C` is declared `final` one cannot declare subclsses of `C` and hence cannot override any methods declared in `C`.
+* If a class `C` is declared `abstract`, then it cannot be instantiated, but non-abstract subclasses of `C` can be instantiated.
+
+## 9.5. Subclasses, Superclasses, Class Hierarchy, Inheritance, and Overriding
+
+A class `C` may be declared a _subclass_ of class `B` by an _extends-clause of the form
+
+    class C extends B { ... }
+
+Class `C` is a subclass and hence a subtype (section 5.5) of `B` and its supertypes. It inherits all methods and fields
+(even private ones, although they are not accessible in class `C`), but not the constructors, from `B`.
+
+## 9.6. Field Declarations in Classes
+
+The purpose of a _field_ is to hold a value inside an object (if non-static) or a class (if static). A field must be
+declared in a class declaration. A _field-declaration_ has one of the forms
+
+    field-modifiers type fieldname1, fieldname2, ... ;
+    field-modifiers type fieldname1 = initializer1, ... ;
+
+The _field-modifiers_ may be a list of the modifiers `static`, `final`, `transient` (section 26.12), and `volatile`,
+and at most one of the access modifiers `private`, `protected`, `public` (section 9.7).
+If a field `f` in class `C` is declared `static`, then `f` is associated with class `C` and can be referred to independently of any object of class `C`.
+
+## 9.7. The Member Access Modifiers `private`, `protected`, `public`
+
+## 9.8. Method Declarations
+
+## 9.9. Parameter Arrays and Variable-Arity Methods
+
+## 9.10. Constructor Declarations
+
+## 9.11 Nested Classes, Member Classes, Local Classes, and Inner Classes
+
+## 9.12 Anonymous Classes
+
+## 9.13 Initializer Blocks, Field Initializers, and Initializers

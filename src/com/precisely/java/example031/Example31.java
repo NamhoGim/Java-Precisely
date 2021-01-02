@@ -1,5 +1,11 @@
+package com.precisely.java.example031;
 // Example 31 from page 25 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
+
+import com.precisely.java.example030.Barrel;
+import com.precisely.java.example030.Cube;
+import com.precisely.java.example030.Tank;
+import com.precisely.java.example030.Vessel;
 
 class Example31 {
     public static void main(String[] args) {
