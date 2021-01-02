@@ -175,12 +175,12 @@ Array initializer may also be used in connection with array creation expressions
 
 ## 9.1. Class Declarations and Class Bodies
 
-A _class-declaration_ of class `com.precisely.java.example033.C` has the form
+A _class-declaration_ of class `C` has the form
 
-    class-modifiers class com.precisely.java.example033.C extends-clause implements-clause
+    class-modifiers class C extends-clause implements-clause
         class-body
 
-A declaration of class `com.precisely.java.example033.C` introduces a new reference type `com.precisely.java.example033.C`. The _class body_ may contain declaration of fields,
+A declaration of class `C` introduces a new reference type `C`. The _class body_ may contain declaration of fields,
 constructors, methods, nested classes, nested interfaces, and initializer blocks.
 A class declaration may take type parameters and be generic; see section 21.4. The declarations in a class may appear in any order:
 
@@ -213,18 +213,18 @@ For a **member class**, they may be a list of `static`, at most one of `abstract
 
 ## 9.4. The Class Modifiers `pulbic`, `final`, `abstract`
 
-* If a top-level class `com.precisely.java.example033.C` is declared `public`, then it is accessible also outside its package (chapter 17). 
-* If a class `com.precisely.java.example033.C` is declared `final` one cannot declare subclsses of `com.precisely.java.example033.C` and hence cannot override any methods declared in `com.precisely.java.example033.C`.
-* If a class `com.precisely.java.example033.C` is declared `abstract`, then it cannot be instantiated, but non-abstract subclasses of `com.precisely.java.example033.C` can be instantiated.
+* If a top-level class `C` is declared `public`, then it is accessible also outside its package (chapter 17). 
+* If a class `C` is declared `final` one cannot declare subclsses of `C` and hence cannot override any methods declared in `C`.
+* If a class `C` is declared `abstract`, then it cannot be instantiated, but non-abstract subclasses of `C` can be instantiated.
 
 ## 9.5. Subclasses, Superclasses, Class Hierarchy, Inheritance, and Overriding
 
-A class `com.precisely.java.example033.C` may be declared a _subclass_ of class `com.precisely.java.example033.B` by an _extends-clause of the form
+A class `C` may be declared a _subclass_ of class `B` by an _extends-clause of the form
 
-    class com.precisely.java.example033.C extends com.precisely.java.example033.B { ... }
+    class C extends B { ... }
 
-Class `com.precisely.java.example033.C` is a subclass and hence a subtype (section 5.5) of `com.precisely.java.example033.B` and its supertypes. It inherits all methods and fields
-(even private ones, although they are not accessible in class `com.precisely.java.example033.C`), but not the constructors, from `com.precisely.java.example033.B`.
+Class `C` is a subclass and hence a subtype (section 5.5) of `B` and its supertypes. It inherits all methods and fields
+(even private ones, although they are not accessible in class `C`), but not the constructors, from `B`.
 
 ## 9.6. Field Declarations in Classes
 
@@ -237,8 +237,8 @@ declared in a class declaration. A _field-declaration_ has one of the forms
 The _field-modifiers_ may be a list of the modifiers `static`, `final`, `transient` (section 26.12), and `volatile`,
 and at most one of the access modifiers `private`, `protected`, `public` (section 9.7).
 
-If a field `f` in class `com.precisely.java.example033.C` is declared `static`, then `f` is associated with class `com.precisely.java.example033.C` and can be referred to independently of any object of class `com.precisely.java.example033.C`.
-A _field initializer_ may be an expression or an array initializer (section 8.2). A static field initializer can refer only to static members of `com.precisely.java.example033.C`
+If a field `f` in class `C` is declared `static`, then `f` is associated with class `C` and can be referred to independently of any object of class `C`.
+A _field initializer_ may be an expression or an array initializer (section 8.2). A static field initializer can refer only to static members of `C`
 an can throw no checked exceptions (chapter 15).
 
 Static fields are initialized when the class is loaded. First all static fields are givien default initial values;
@@ -246,9 +246,9 @@ then the static initializer blocks (section 9.13) and static field initializers 
 
 Non-static fields are initialized when a constructor is called, at which time all static fields have been initialized already (section 9.10).
 
-If a class `com.precisely.java.example033.C` declares a non-static field `f`, and `com.precisely.java.example033.C` is a sub-class of a class `com.precisely.java.example033.B` that has a non-static field `f`,
-then every object of class `com.precisely.java.example033.C` has two fields, both called `f`: one is the `com.precisely.java.example033.B`-field `f` declared in the superclass `com.precisely.java.example033.B`,
-and one is the `com.precisely.java.example033.C` field `f` declared in `com.precisely.java.example033.C` itself. What field is referred to by a field access `o.f` is determined by the compile-type type of `o` (section 11.9).
+If a class `C` declares a non-static field `f`, and `C` is a sub-class of a class `B` that has a non-static field `f`,
+then every object of class `C` has two fields, both called `f`: one is the `B`-field `f` declared in the superclass `B`,
+and one is the `C` field `f` declared in `C` itself. What field is referred to by a field access `o.f` is determined by the compile-type type of `o` (section 11.9).
 
 ## 9.7. The Member com.precisely.java.example035.Access Modifiers `private`, `protected`, `public`
 
@@ -256,16 +256,16 @@ A member (field, method, nested class, or interface) is always accessible in the
 except where shadowed by a variable, parameter, or field (of a nested class). The _access modifier_ `private`, `protected`,
 and `public` determine where else the member is accessible.
 
-If a member is declared `private` in top-level class `com.precisely.java.example033.C` or a nested class within `com.precisely.java.example033.C`, it is accessible on all object instances,
-not only `this`, in `com.precisely.java.example033.C` and its nested classes, but not in their subclasses outside `com.precisely.java.example033.C` nor in other classes.
+If a member is declared `private` in top-level class `C` or a nested class within `C`, it is accessible on all object instances,
+not only `this`, in `C` and its nested classes, but not in their subclasses outside `C` nor in other classes.
 
-If a member in class `com.precisely.java.example033.C` is declared `protected`, it is accessible in all classes in the same package (chapter 17) as `com.precisely.java.example033.C`
-and on the same object instance (`this`) in subclasses of `com.precisely.java.example033.C`, but not in non-subclasses in other packages.
+If a member in class `C` is declared `protected`, it is accessible in all classes in the same package (chapter 17) as `C`
+and on the same object instance (`this`) in subclasses of `C`, but not in non-subclasses in other packages.
 
-If a member in class `com.precisely.java.example033.C` is not declared `private`, `protected`, or `public`, it has _package access_, or _default access_,
-and is accessible only in classes with in the same package as `com.precisely.java.example033.C`, not in classes in other packages.
+If a member in class `C` is not declared `private`, `protected`, or `public`, it has _package access_, or _default access_,
+and is accessible only in classes with in the same package as `C`, not in classes in other packages.
 
-If a member in class `com.precisely.java.example033.C` is declared `public`, it is accessible in all classes, including classes in other packages.
+If a member in class `C` is declared `public`, it is accessible in all classes, including classes in other packages.
 Thus, in order of increasing accessibility, we have `private` access, package (or default) access, `protected` access, and `public` access.
 
 ## 9.8. Method Declarations
