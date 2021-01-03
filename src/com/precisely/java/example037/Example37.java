@@ -1,3 +1,4 @@
+package src.com.precisely.java.example037;
 // Example 37 from page 29 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -51,7 +52,7 @@ class Example37 {
         c1.m1(i);
         c2.m1(i);
         C1.m1(d);
-        C2.m1(d);     // Prints 21i 21i 11d 21d
+        C2.m1(d);                                   // Prints 21i 21i 11d 21d
         c1.m2(i);                                   // Prints 12i
         c2.m2(i);                                   // Prints 12i
         c2.m2(ii);                                  // Prints 22ii

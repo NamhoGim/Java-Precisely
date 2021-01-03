@@ -1,3 +1,4 @@
+package src.com.precisely.java.example036;
 // Example 36 from page 29 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 

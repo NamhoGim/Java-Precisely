@@ -270,6 +270,35 @@ Thus, in order of increasing accessibility, we have `private` access, package (o
 
 ## 9.8. Method Declarations
 
+A _method_ must be declared inside a class. A _method-declaration declaring method `m` has the form
+
+    method-modifiers return type m(formal-list) throws-clause
+        method-body
+
+The _formal-list is comma-separated list of zero or more _formal parameter declarations_, of one of the forms
+    
+    parameter-modifier type parameter-name
+    parameter-modifier type... parameter-name
+
+The _parameter-modifier_ may be `final`, meaning that the parameter cannot be modified inside the method, or absent.
+
+The _method-modifiers_ may be `abstract` or a list of `static`, `final`, `synchronized` (section 20.2),
+and at most one of the access modifiers `private`, `protected`, or `public` (section 9.7).
+
+If a method `m` in class `C` is declared `final`, it cannot be overridden (redefined) in subclasses.
+
+If a method `m` in class `C` is declared `abstract`, class `C` must itself be abstract(and so cannot  be instantiated).
+
+An `abstract` method cannot be `static`, `final` or `synchronaized`, and its declaration has no method body:
+
+    abstract method-modifiers return-type m(formal-list) throw-clause;
+
+The _throws-clause_ of a method or constructor has the form `throw E1, ..., En`
+where `E1, ..., En` are the names of exception types covering all the checked exceptions that the method or constructor may throw.
+If execution of the method or constructor body may throw some exception `e`, then `e` must be either an unchecked exception (chapter 15)
+or a checked exception whose class is a subtype of one of `E1`, ..., `En`. An `Ei` may be a generic type parameter provided it is constrained (section 21.5) to be subtype of Throwable.
+
+
 ## 9.9. Parameter Arrays and Variable-Arity Methods
 
 ## 9.10. Constructor Declarations
