@@ -298,13 +298,60 @@ where `E1, ..., En` are the names of exception types covering all the checked ex
 If execution of the method or constructor body may throw some exception `e`, then `e` must be either an unchecked exception (chapter 15)
 or a checked exception whose class is a subtype of one of `E1`, ..., `En`. An `Ei` may be a generic type parameter provided it is constrained (section 21.5) to be subtype of Throwable.
 
-
 ## 9.9. Parameter Arrays and Variable-Arity Methods
+
+The last parameter of a method may be declared to be a _parameter array_, using the syntax
+
+    t... x
+
+where `t` is a type, x is a parameter name, and the three dots ... are part of the concrete syntax.
+In the method, parameter `x` will have type `t[]`.
 
 ## 9.10. Constructor Declarations
 
+The purpose of a constructor in class `C` is to initialize new objects (instances) of the class. A _constructor-declaration_
+in class `C` has the form
+
+    constructor-modifiers C(formal-list) throws-clause
+        constructor-body
+
+The _constructor-modifiers_ may be a list of at most one of `private`, `protected`, and `public` (section 9.7);
+a constructor cannot be `abstract`, `final`, or `static`. A constructor has no return type.
+
+Constructors may be overloaded in the same way as methods: the _constructor signature_ (a list of the parameter types in _formal-list_)
+is used to deistinguish constructors in the same class.
+A constructor may call another overloaded constructor in the same class using the syntax:
+
+    this(actual-list)
+
 ## 9.11 Nested Classes, Member Classes, Local Classes, and Inner Classes
+
+A non-static nested class, that is, a non-static member class `NMC` or a local class `NLC` in a non-static member,
+is called an _inner class_. An object of an inner class always contains a reference to an object of the enclosing class `C`,
+called the _enclosing object_. That object can be referred to as `C.this` in non-static code (example 47),
+so a non-static member `x` of the enclosing object cna be referred to as `C.this.x`.
+
+An inner class or local class cannot have static members. More precisely, all static fields must also be final,
+and methods and nested classes in an inner class or local class must be non-static.
+
+A static nested class, that is, a static member class `SMC` or a local class in a static member, has no enclosing object
+and cannot refer to non-static members of the enclosing class `C`.
+
+A static member class may itself have static as well as non-static members.
 
 ## 9.12 Anonymous Classes
 
+An _anonymous class_ is a special kind of local class; hence it must be declared inside a method, constructor, or initializer.
+An anonymous class can be declared, and exactly one instance created, using the special expresion syntax:
+
+    new C(actual-list)
+        class-body
+
 ## 9.13 Initializer Blocks, Field Initializers, and Initializers
+
+In addition to field initializers (section 9.6), class may contain _initializer-blocks_.
+Initializer blocks may be used when field initializers or constructors do not suffice. We use the term _initializer_ to mean field initializers
+as well as initializer blocks. A _static initializer block_ has the form:
+    
+    static block-statement
+

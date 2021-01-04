@@ -1,10 +1,11 @@
+package com.precisely.java.example041;
 // Example 41 from page 31 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 class Example41 {
     static double[] ps = new double[6];
 
-    static {                              // static initializer block
+    static {                                    // static initializer block
         double sum = 0;
         for (int i = 0; i < ps.length; i++)     // fill with increasing random numbers
             ps[i] = sum += Math.random();

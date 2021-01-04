@@ -1,4 +1,4 @@
-package src.com.precisely.java.example037;
+package com.precisely.java.example037;
 // Example 37 from page 29 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 

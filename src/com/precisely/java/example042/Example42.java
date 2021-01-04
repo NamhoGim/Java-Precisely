@@ -1,4 +1,5 @@
-// Example 47 from page 35 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example042;
+// Example 42 from page 33 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 class TLC {                                         // top-level class
@@ -35,7 +36,7 @@ class TLC {                                         // top-level class
     }
 }
 
-class Example47 {
+class Example42 {
     public static void main(String[] args) {
         TLC.SMC sio = new TLC.SMC();
         TLC.sf = 10;
