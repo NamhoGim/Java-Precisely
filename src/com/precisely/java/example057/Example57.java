@@ -1,3 +1,4 @@
+package com.precisely.java.example057;
 // Example 57 from page 43 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -9,7 +10,7 @@ class Point {
         this.y = y;
     }
 
-    Point(com.precisely.java.example027.Point p) {
+    Point(Point p) {
         this(p.x, p.y);
     }    // calls the above constructor
 

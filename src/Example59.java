@@ -1,6 +1,8 @@
 // Example 59 from page 45 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
+import com.precisely.java.example058.SPoint;
+
 class Example59 {
     public static void main(String[] args) {
         System.out.println("Number of points created: " + SPoint.getSize());

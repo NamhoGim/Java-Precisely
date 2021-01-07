@@ -355,3 +355,40 @@ as well as initializer blocks. A _static initializer block_ has the form:
     
     static block-statement
 
+# 10. Classes and Object in the Computer
+
+## 10.1 What Is a Class?
+
+Conceptually, a class represents a concept, a template for creating instances(object).
+In the computer, a class is a chunk of memory, set aside once, when the class is loaded at run-time.
+A class has the following parts:
+
+* The name of the class
+* Room for all the static members of the class
+
+## 10.2 What is an Object?
+
+Conceptually, an object is an instance of a concept(a class). In the computer, an object is a chunk of memory,
+set aside by an object creation expression `new C(...);` see section 11.7. Every evaluation of an object creation expression
+`new C(...)` creates a distinc object, with its own chunk of computer memory. An object has the following parts:
+
+* A reference to the run-time `class C` of the object; this is the class `C` used when creating the object
+* Room for all the non-static members of the object
+
+## 10.3
+
+When `NMC` is an inner class(a non-static membmer class, or a local class in non-static code) in a class `C`,
+then an object of class `NMC` is an _inner object_. In addition to the object's class and the non-static fields
+an inner object always contains a reference to an _enclosing object_, which is an object of the innermost enclosing class `C`.
+The enclosing object reference can be written `C.this` in non-static code in the inner class.
+An object of a static nested class `SMC`, on the other hand, contains no reference to an enclosing object.
+
+# 11. Expressions
+
+# 12. Statements
+
+# 13. Interfaces
+
+# 14. Enum Types
+
+# 15. Exceptions, Checked and Unchecked
