@@ -375,7 +375,7 @@ set aside by an object creation expression `new C(...);` see section 11.7. Every
 * A reference to the run-time `class C` of the object; this is the class `C` used when creating the object
 * Room for all the non-static members of the object
 
-## 10.3
+## 10.3 Inner Objects
 
 When `NMC` is an inner class(a non-static membmer class, or a local class in non-static code) in a class `C`,
 then an object of class `NMC` is an _inner object_. In addition to the object's class and the non-static fields
