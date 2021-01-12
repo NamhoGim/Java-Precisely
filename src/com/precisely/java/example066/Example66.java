@@ -1,4 +1,4 @@
-// Example 64 from page 49 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example066;// Example 66 from page 49 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.function.BiFunction;
@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-class Example64 {
+class Example66 {
     public static void main(String[] args) {
         simpleLambdas();
         higherOrderLambdas();

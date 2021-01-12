@@ -1,4 +1,4 @@
-// Example 65 from page 49 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example065;// Example 65 from page 49 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.function.BiFunction;

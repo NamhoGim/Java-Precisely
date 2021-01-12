@@ -5,7 +5,7 @@ package com.precisely.java.example058;
 import java.util.ArrayList;
 
 public class SPoint {
-    static ArrayList<SPoint> allpoints = new ArrayList<SPoint>();
+    static ArrayList<SPoint> allpoints = new ArrayList<>();
     int x, y;
 
     public SPoint(int x, int y) {

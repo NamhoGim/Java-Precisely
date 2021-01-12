@@ -385,6 +385,26 @@ An object of a static nested class `SMC`, on the other hand, contains no referen
 
 # 11. Expressions
 
+## 11.13 Lambda Expressions (Java 8.0)
+
+A lambda expression evaluates to a function, a value that implements a functional interface (chapter 23).
+A lambda expression has one of these three forms, each having zero or more parameters and a lambda body.
+
+    x -> ebs
+    (x1, ... xn) -> ebs
+    (formal-list) -> ebs
+
+## 11.14 Method Reference Expressions (Java 8.0)
+
+A method reference expression has one of these six forms, where `t` is a type, `m` a method neam, `e` and expression,
+and `C` a class name. Example 67 illustrates all of these:
+    
+    t::m
+    e::m
+    super::m
+    C::new
+    t[]...[] :: new
+
 # 12. Statements
 
 # 13. Interfaces

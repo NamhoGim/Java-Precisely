@@ -1,4 +1,4 @@
-// Example 67 from page 51 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example068;// Example 68 from page 51 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.function.BiConsumer;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-class Example67 {
+class Example68 {
     public static void main(String[] args) {
         methodReferenceExamples();
         targetedTypeExamples();
