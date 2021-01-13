@@ -18,23 +18,23 @@ class Example67 {
 
     private static void methodReferenceExamples() {
         // Form t::m reference to instance method
-        BiFunction<String, Integer, Character> charat = String::charAt;
+        BiFunction<String, Integer, Character> charat = String::charAt;             // t::m
         // Form t::m reference to static method
-        Function<String, Integer> parseint = Integer::parseInt;
+        Function<String, Integer> parseint = Integer::parseInt;                     // t::m
         // Form e::m reference to instance method, receiver is the string
-        Function<Integer, Character> hex1 = "0123456789ABCDEF"::charAt;
+        Function<Integer, Character> hex1 = "0123456789ABCDEF"::charAt;             // e::m
         Function<Integer, Character> hex2 = makeConverter(false);
         System.out.println(charat.apply("ABCDEF", 1));
         System.out.println(hex1.apply(13));
         System.out.println(hex2.apply(13));
-        Function<Integer, C> makeC = C::new;
+        Function<Integer, C> makeC = C::new;                                        // C::new
         C x = makeC.apply(10);
         System.out.println(x.getBVal().get());
         System.out.println(x.getCVal().get());
-        Function<Integer, Double[]> make1DArray = Double[]::new;
-        Consumer<String> print = System.out::println;
-        Function<Integer, ArrayList<Double>> mkDoubleList = ArrayList::new;
-        BiConsumer<Double[], Comparator<Double>> sorter = Arrays::sort;
+        Function<Integer, Double[]> make1DArray = Double[]::new;                    // t[]::new
+        Consumer<String> print = System.out::println;                               // e::m
+        Function<Integer, ArrayList<Double>> mkDoubleList = ArrayList::new;         // t::new
+        BiConsumer<Double[], Comparator<Double>> sorter = Arrays::sort;             // t::<t1>m
         ArrayList<Double> list = mkDoubleList.apply(10);
         list.add(34.5);
         list.add(67.2);
@@ -47,7 +47,7 @@ class Example67 {
 
     private static Function<Integer, Character> makeConverter(boolean uppercase) {
         // Form e::m reference to instance method, computing the receiver
-        return (uppercase ? "0123456789ABCDEF" : "0123456789abcdef")::charAt;
+        return (uppercase ? "0123456789ABCDEF" : "0123456789abcdef")::charAt;       // e::m
     }
 
     static class B {
@@ -64,11 +64,11 @@ class Example67 {
         }
 
         public Supplier<Integer> getBVal() {
-            return super::getVal;
+            return super::getVal;                                                   // super::m
         }
 
         public Supplier<Integer> getCVal() {
-            return this::getVal;
+            return this::getVal;                                                    // this::m
         }
 
         public int getVal() {

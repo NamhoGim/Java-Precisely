@@ -407,7 +407,38 @@ and `C` a class name. Example 67 illustrates all of these:
 
 # 12. Statements
 
+## 12.1. Expression Statements
+
+## 12.2. Block Statements
+
+## 12.3. The Empty Statement
+
+## 12.4. Choice Statements
+
+## 12.5. Loop Statements
+
+## 12.6. Returns, Labeled Statements, Exits, and Exceptions
+
+### 12.6.5. The `throw` Statement
+
+### 12.6.6. The `try-catch-finally` Statement
+
+## 12.7. The Try-with-Resources Statement
+
+## 12.8. The `assert` Statement
+
 # 13. Interfaces
+
+An _interface_ describes fields and methods but does not implement them. An _interface-declaration_ may contain field descriptions,
+method descriptions, class declarations, and interface declarations, in any order.
+
+    interface-modifier interface I extends-clause {
+        field-descriptions
+        method-descriptions
+        method-declarations
+        class-declarations
+        interface-declarations
+    }
 
 # 14. Enum Types
 
