@@ -1,5 +1,7 @@
-// Example 89 from page 63 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example089;// Example 89 from page 63 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
+
+import com.precisely.java.example098.WeekdayException;
 
 class Example89 {
     public static void main(String[] args) {

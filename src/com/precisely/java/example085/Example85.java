@@ -1,4 +1,4 @@
-// Example 85 from page 61 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example085;// Example 85 from page 61 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 class Example85 {

@@ -1,4 +1,4 @@
-// Example 92 from page 65 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example092;// Example 92 from page 65 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.io.*;
@@ -35,7 +35,6 @@ class Example92 {
     // arithmetics.  An assert statement asserts that the resulting
     // output line has the correct length unless the line contains only
     // a single word or is the last line of the output.
-
     public static void format(Iterator wordIter, int lineWidth, PrintWriter pw) {
         lineWidth = Math.max(0, lineWidth);
         WordList curLine = new WordList();
@@ -80,7 +79,6 @@ class Example92 {
 }
 
 // A word list with a fast length method, and invariant assertions
-
 class WordList {
     private final LinkedList<String> strings = new LinkedList<String>();
     // Invariant: length equals word lengths plus inter-word spaces
@@ -120,7 +118,6 @@ class WordList {
 }
 
 // A String-producing Iterator, created from a Reader using StreamTokenizer
-
 class ReaderIterator implements Iterator {
     private StreamTokenizer stok; // equals null if at end or error
 

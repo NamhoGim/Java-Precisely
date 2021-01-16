@@ -3,7 +3,7 @@ package com.precisely.java.example027;
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 public class Point {
-    int x, y;
+    protected int x, y;
 
     public Point(int x, int y) {
         this.x = x;

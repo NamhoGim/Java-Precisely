@@ -1,3 +1,4 @@
+package com.precisely.java.example086;
 // Example 86 from page 61 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -12,7 +13,6 @@ class Example86 {
     }
 
     // Decide whether query is a substring of target (using continue)
-
     static boolean substring1(String query, String target) {
         nextposition:
         for (int j = 0; j <= target.length() - query.length(); j++) {

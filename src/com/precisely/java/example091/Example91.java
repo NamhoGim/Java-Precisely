@@ -1,4 +1,4 @@
-// Example 91 from page 65 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example091;// Example 91 from page 65 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 class Example91 {
@@ -12,7 +12,6 @@ class Example91 {
     }
 
     // Modified for Java from C code on Paul Hsieh's square root page
-
     static int sqrt(int x) {  // Algorithm by Borgerding, Hsieh, Ulery
         if (x < 0)
             throw new IllegalArgumentException("sqrt: negative argument");

@@ -1,4 +1,4 @@
-// Example 87 from page 61 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example087;// Example 87 from page 61 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 class Example87 {
@@ -12,7 +12,6 @@ class Example87 {
     }
 
     // Decide whether query is a substring of target (using break)
-
     static boolean substring2(String query, String target) {
         for (int j = 0; j <= target.length() - query.length(); j++)
             thisposition:{

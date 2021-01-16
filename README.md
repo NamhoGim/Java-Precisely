@@ -406,28 +406,52 @@ and `C` a class name. Example 67 illustrates all of these:
     t[]...[] :: new
 
 # 12. Statements
-
 ## 12.1. Expression Statements
-
 ## 12.2. Block Statements
-
 ## 12.3. The Empty Statement
-
 ## 12.4. Choice Statements
-
 ## 12.5. Loop Statements
-
 ## 12.6. Returns, Labeled Statements, Exits, and Exceptions
-
+### 12.6.1 The `return` Statement
+### 12.6.2 Labeled Statement
+### 12.6.3 The `break` Statement
+### 12.6.4 The `continue` Statement
 ### 12.6.5. The `throw` Statement
 
+A `throw` statement has the form
+    
+    throw expression;
+
+where the type of the _expression_ must be a subtype of class Throwable (chapter 15).
+The `throw` statement is executed as follows: The _expression_ is evaluated to obtain an exception object `v`.
+If it is `null`, the a NullPointerException is thrown; otherwise the exception object `v` is thrown.
+Thus a thrown exception is never `null`. In any case, the enclosing block statement terminates abruptly (chapter 15).
+The thrown exception may be caught by a dynamically enclosing `try-catch` statement (section 12.6.6). If the exception is not caught,
+then the entire program execution will be aborted, and information from the exception will be printed on the console.
+
 ### 12.6.6. The `try-catch-finally` Statement
+
+A `try-catch` statement is used to catch (particular) execptions thrown by a code block; it has this form:
+
+    try
+        body
+    catch (E1 x1) catchbody1
+    catch (E21 | E22 | ... | E2k) catchbody2
+    ...
+    finally finallybody
 
 ## 12.7. The Try-with-Resources Statement
 
 ## 12.8. The `assert` Statement
 
+The `assert` statement has one of the following forms:
+
+    assert boolean-expression ;
+    assert boolean-expression : expression ;
+
 # 13. Interfaces
+
+## 13.1 Interface Declarations
 
 An _interface_ describes fields and methods but does not implement them. An _interface-declaration_ may contain field descriptions,
 method descriptions, class declarations, and interface declarations, in any order.
@@ -440,6 +464,57 @@ method descriptions, class declarations, and interface declarations, in any orde
         interface-declarations
     }
 
+## 13.2 Classes Implementing Interfaces
+
+A class `C` may be declared to implement one or more interfaces by an _implements-clause_:
+
+    class C implements I1, I2, ...
+        class-body
+
+In this case, `C` is a subtype (section 5.5) of `I1`, `I2`, and so on, and `C` must declare all the methods described by `I1`, `I2`, ...
+with exactly the prescribed signatures and return types. A class may implement any number of interfaces. Fields, classes,
+and interfaces declared in `I1`, `I2`,... can be used in class `C`.
+
+## 13.3 Default and Static Methods on Interfaces (Java 8.0)
+
+An interface can declare _default methods_, which must have a body in the form of a block statement.
+The method body can refer only to the interface's (abstract, default, or static) methods and (final static) fields, as well as other static methods.
+A default methods is inherited by any class that implements the interface or any of its subinterfaces.
+Many predefined functional interfaces have default methods; see chapter 23 and example 214.
+
+An interface can declare _static methods_, which have a body in the form of a block statement.
+The method body can refer only to other static methods and (final static) fields of the interface.
+A static method `m` declared on interface `I` can be called directly on the interface type as `I.m(...)`
+and must be called like this also in implementing classes and in subinterfaces; it is not "inherited" by them.
+
 # 14. Enum Types
 
 # 15. Exceptions, Checked and Unchecked
+
+# 16. Compilation, Source Files, Class Names, and Class Files
+
+# 17. Packages and Jar Files
+
+# 18. Mathematical Functions
+
+# 19. String Builders and String Buffers
+
+# 20. Threads, Concurrent Execution, and Synchronization
+
+# 21. Generic Types and Methods
+
+# 22. Generic Collections and Maps
+
+# 23. Functional Interfaces (Java 8.0)
+
+# 24. Streams for Bulk Data (Java 8.0)
+
+# 25. Class Optional<T> (Java 8.0)
+
+# 26. Input and Output
+
+# 27. Reflection
+
+# 28. Metadata Annotations
+
+# 29. What Is New in Java 8.0

@@ -1,4 +1,4 @@
-// Example 95 from page 67 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example095;// Example 95 from page 67 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.awt.Canvas;
@@ -6,6 +6,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Graphics;
+
+import com.precisely.java.example093.Colored;
+import com.precisely.java.example093.ColoredDrawable;
+import com.precisely.java.example094.ColoredDrawablePoint;
+import com.precisely.java.example094.ColoredRectangle;
 
 class Example95 {
     static void printcolors(Colored[] cs) {
