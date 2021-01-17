@@ -487,6 +487,41 @@ The method body can refer only to other static methods and (final static) fields
 A static method `m` declared on interface `I` can be called directly on the interface type as `I.m(...)`
 and must be called like this also in implementing classes and in subinterfaces; it is not "inherited" by them.
 
+## 13.4 Annotation Type Declarations
+
+An annotation type `@Anno` is a special kind of interface; its declaration has this form:
+
+    interface-modifiers @interface Anno { annotations-members }
+
+Each _annotations-member_ has one of these forms, where an _annotations-member-expression_ is a constant:
+
+    type f();
+    type f() default annotation-member-expression;
+    final type f = constant;
+
+Several meta-annotations may be used when declaring an annotations type. Type `@Target({...})`
+meta-annotations specifies the legal targets for an annotations type; the default is any target:
+
+| `@Target` Value | Legal Targets |
+|:----------------|:--------------|
+| `ANNOTATION_TYPE` | Annotations type declarations |
+| `CONSTRUCTOR` | Constructor declarations |
+| `FIELD` | Field declarations or enum value declarations |
+| `LOCAL_VARIABLE` | Local variable declarations |
+| `METHOD` | Method declarations |
+| `PACKAGE` | Package declarations |
+| `PARAMETER` | Parameter declarations in method or constructor |
+| `TYPE` | Class, interface, or enum type declarations |
+| `TYPE_PARAMETER` | Type parameter of generic class, interface, method or constructor |
+
+The `@Retentions(...)` meta-annotations specifies the retention policy for an annotation type:
+
+| Value | Meaning |
+|:------|:--------|
+| `SOURCE ` | The annotations is discarded by the compiler and will not be stored in the class file |
+| `CLASS` | The annotations is stored in the class-file (default) but unavailable at run-time |
+| RUNTIME | The annotations is available for reflective inspections at run-time |
+
 # 14. Enum Types
 
 # 15. Exceptions, Checked and Unchecked
