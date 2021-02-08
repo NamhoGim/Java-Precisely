@@ -1,5 +1,8 @@
+package com.precisely.java.example096;
 // Example 96 from page 69 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
+
+import com.precisely.java.example097.Month;
 
 import java.lang.annotation.*;                         // Annotation
 
@@ -17,8 +20,7 @@ import java.lang.reflect.*;                            // Method
 
 @Target({TYPE, METHOD})     // Attribute can be used on types and methods only
 @Retention(RUNTIME)         // Attribute values are kept until run-time
-@Repeatable(Authors.class)
-        // Attribute may be repeated, as a shorthand for @Authors(...)
+@Repeatable(Authors.class)  // Attribute may be repeated, as a shorthand for @Authors(...)
 @interface Author {
     int oneHour = 60 * 60 * 1000;
 
@@ -32,8 +34,7 @@ import java.lang.reflect.*;                            // Method
 }
 
 @Target({TYPE, METHOD})     // Attribute can be used on types and methods only
-@Retention(RUNTIME)
-        // Attribute values are kept until run-time
+@Retention(RUNTIME)         // Attribute values are kept until run-time
 @interface Authors {
     Author[] value();
 }

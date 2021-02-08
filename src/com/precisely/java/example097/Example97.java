@@ -1,3 +1,4 @@
+package com.precisely.java.example097;
 // Example 97 from page 71 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -32,35 +33,6 @@ enum Day {
     }
 }
 
-enum Month {
-    JAN(31), FEB(28), MAR(31), APR(30), MAY(31), JUN(30),
-    JUL(31), AUG(31), SEP(30), OCT(31), NOV(30), DEC(31);
-
-    private final int days;
-
-    Month(int days) {
-        this.days = days;
-    }
-
-    private final static Month[] month = values();    // Cache the array
-
-    public int days(int year) {
-        return this == FEB && MyDate.leapYear(year) ? 29 : days;
-    }
-
-    public static Month toMonth(int n) {
-        return month[n - 1];
-    }
-
-    public int toInt() {
-        return ordinal() + 1;
-    }
-
-    public Month succ() {
-        return toMonth(toInt() + 1);
-    }
-}
-
 class MyDate {
     final int yy /* 0-9999 */, dd /* 1-31 */;
     final Month mm;
@@ -70,8 +42,9 @@ class MyDate {
             this.yy = yy;
             this.mm = mm;
             this.dd = dd;
-        } else
+        } else {
             throw new Exception("Illegal date (" + yy + "," + mm + "," + dd + ")");
+        }
     }
 
     public static boolean leapYear(int y) {
@@ -83,7 +56,6 @@ class MyDate {
     }
 
     // An alternative to method days(int) in enum type Month:
-
     public static int monthDays(int y, Month m) {
         switch (m) {
             case APR:
@@ -116,7 +88,6 @@ class MyDate {
 
     // ISO week numbers: the week is from Monday to Sunday.  Week 1 is
     // the first week having a Thursday.
-
     public static int weekNumber(int y, Month m, int d) {
         int yday = dayInYear(y, m, d);
         int wday = weekday(y, m, d).toInt();
@@ -133,7 +104,6 @@ class MyDate {
 
     // Translated from Emacs's calendar.el:
     // Reingold: Number of the day within the year:
-
     public static int dayInYear(int y, Month m, int d) {
         int monthno = m.toInt() - 1;
         int monthadjust =
@@ -147,7 +117,6 @@ class MyDate {
 
     // Reingold: Find the number of days elapsed from the (imagined)
     // Gregorian date Sunday, December 31, 1 BC to the given date.
-
     public static int toDaynumber(int y, Month m, int d) {
         int prioryears = y - 1;
         return
@@ -161,7 +130,6 @@ class MyDate {
     }
 
     // Reingold et al: from absolute day number to year, month, date:
-
     public static MyDate fromDaynumber(int n) {
         try {
             int d0 = n - 1;
@@ -191,7 +159,6 @@ class MyDate {
     }
 
     // Day of the week: 0=Mon, 1=Tue, ..., 6=Sun
-
     public static Day weekday(int y, Month m, int d) {
         return Day.toDay((toDaynumber(y, m, d) + 6) % 7);
     }

@@ -520,11 +520,34 @@ The `@Retentions(...)` meta-annotations specifies the retention policy for an an
 |:------|:--------|
 | `SOURCE ` | The annotations is discarded by the compiler and will not be stored in the class file |
 | `CLASS` | The annotations is stored in the class-file (default) but unavailable at run-time |
-| RUNTIME | The annotations is available for reflective inspections at run-time |
+| `RUNTIME` | The annotations is available for reflective inspections at run-time |
 
 # 14. Enum Types
 
+An enum type is used to declare distinct enum values; an enum type is a reference type. An _enum-type-declaration_
+is a specialized form of class declaration that begins with a list of enum value declarations:
+
+    enum-modifiers enum t implements-cluse {
+        enum-value-list;
+        field-declarations
+        method-declarations
+        method-declarations
+        class-declarations
+        interface-declarations
+        intitializer-blocks
+    }
+
 # 15. Exceptions, Checked and Unchecked
+
+An _exception_ is an object of an exception type: a non-generic subclass of Throwable. It is used to signal and describe
+and abnormal situation during program execution. The evaluation of an expression or the execution of a statement
+may throw an exception, either by executing a `throw` statement (section 12.6.5) or by executing a primitive operation,
+such as array element assignment, that may throw an exception.
+
+There are two kinds of exception types: _checked_ (thos that mus be delcared in the _throws-clause_ of a method or 
+constructor; see section 9.8) and _unchecked_ (those that not be). If the execution of a method or constructor body
+can throw a checked exception of class `E`, then class `E` or a supertype of `E` must be declared in the _throws-clause_
+of the method or constructor.
 
 # 16. Compilation, Source Files, Class Names, and Class Files
 

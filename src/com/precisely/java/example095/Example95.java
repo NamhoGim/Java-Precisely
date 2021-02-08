@@ -1,4 +1,5 @@
-package com.precisely.java.example095;// Example 95 from page 67 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example095;
+// Example 95 from page 67 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.awt.Canvas;
