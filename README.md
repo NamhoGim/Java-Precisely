@@ -550,12 +550,18 @@ can throw a checked exception of class `E`, then class `E` or a supertype of `E`
 of the method or constructor.
 
 # 16. Compilation, Source Files, Class Names, and Class Files
-
 # 17. Packages and Jar Files
-
 # 18. Mathematical Functions
 
 # 19. String Builders and String Buffers
+
+_String builders_, which are objects of the predefined class java.lang.StringBuilder, provide extensible and modifiable strings.
+Characters can be appended to a string builder without copying those characters already in the string builder;
+the string builder automatically and efficiently extended as needed. To concatenate _n_ strings each of length _k_ using string builder
+requires only time proportional to _kn_, considerably faster than _kn^2_ for large _n_.
+
+A _StringBuffer_ has the same methods as a _StringBuilder_, but is thread safe: several concurrent threads (chapter 20)
+can safely modify the same string buffer. Both classes implement the Appendable and CharSequence interfaces (section 26.7).
 
 # 20. Threads, Concurrent Execution, and Synchronization
 
