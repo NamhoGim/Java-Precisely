@@ -1,8 +1,10 @@
+package com.precisely.java.example106;
 // Example 106 from page 79 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.Random;
 
+// Inefficiently Replacing Occurrences of a Character by a String
 class Example106 {
     public static void main(String[] args) {
         if (args.length != 1)

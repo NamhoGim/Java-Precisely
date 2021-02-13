@@ -1,3 +1,4 @@
+package com.precisely.java.example105;
 // Example 105 from page 79 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 

@@ -1,8 +1,10 @@
+package com.precisely.java.example107;
 // Example 107 from page 79 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.text.DecimalFormat;
 
+// Padding a String to a Given Width
 class Example107 {
     public static void main(String[] args) {
         System.out.println("Printing temperature table");
