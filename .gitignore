@@ -27,3 +27,5 @@ hs_err_pid*
 /.idea/
 /classes/
 /examples.iml
+/out/
+/.gradle/
