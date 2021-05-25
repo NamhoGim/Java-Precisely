@@ -594,6 +594,24 @@ as a constructor name `new C<T>(...);` and so on. However, there are the followi
 * One cannot use a type instance in an instance test expression such as `(e instanceof C<Integer>)`
 * One cannot use a type instance as the element type of an array in an array creation expression such as `new C<Integer>[8]`. But `new ArrayList<C<Integer>>()` is legal; see section 21.11
 
+## 21.4 Generic Classes
+
+## 21.5 Constraints on Type Parameters
+
+## 21.6 How Can Type Parameters Be Used?
+
+## 21.7 Generic Interfaces
+
+## 21.8 Generic Methods
+
+## 21.9 Wildcard Type Arguments
+
+## 21.10 The Raw Type
+
+## 21.11 The Implementation of Generic Types and Methods
+
+
+
 # 22. Generic Collections and Maps
 
 # 23. Functional Interfaces (Java 8.0)
