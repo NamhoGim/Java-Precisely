@@ -567,6 +567,33 @@ can safely modify the same string buffer. Both classes implement the Appendable 
 
 # 21. Generic Types and Methods
 
+Generic types and methods provide away to strengthen type checking at compile-time while at the same time making programs more expressive,
+reusable and readable. The ability to have generic types and methods is also known as _parametric polymorphism._
+
+## 21.2 Generic Types, Type Prameters, and Type Instances
+
+A _generic class_ declarations `class C<T1, ..., Tn> { ... }` has one more _type parameters_ `T1, ..., Tn`.
+Type body of the delcaration is an ordinary class body (section 9.1)
+in which the type parameter `Ti` can be used almost as if they were ordinary types; see section 21.6.
+A generic class is also called _parameterized class_.
+The resulting classes are called _type instances._
+
+Generic interfaces (section 21.7) can be declared also, and type instances can be created from them.
+Again, a generic interface is not an interface, but a type instance of a generic interface is an interface.
+
+Generic method (section 21.8) can be declared by specifying type parameters on the method declaration
+in addition to any type parameters specified on the enclosing class or interface type.
+
+## 21.3 How Can Type Instance Be Used?
+
+A type instance such as `C<Integer>` can be used almost anywhere an ordinary reference type can be used:
+as type of a field, variable, parameter or return type; as the element type in an array type in the same contexts;
+as a constructor name `new C<T>(...);` and so on. However, there are the following restrictions:
+
+* One can use a type instance in cast expression such as `(C<Integer>)e` but such a cast is sometimes reported by the complier to be unchecked (see section 21.6).
+* One cannot use a type instance in an instance test expression such as `(e instanceof C<Integer>)`
+* One cannot use a type instance as the element type of an array in an array creation expression such as `new C<Integer>[8]`. But `new ArrayList<C<Integer>>()` is legal; see section 21.11
+
 # 22. Generic Collections and Maps
 
 # 23. Functional Interfaces (Java 8.0)
