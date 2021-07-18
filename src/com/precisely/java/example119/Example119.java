@@ -1,3 +1,4 @@
+package com.precisely.java.example119;
 // Example 119 from page 91 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -64,12 +65,12 @@ class Log<T> {
 class Example119 {
     public static void main(String[] args) {
         // Log<String> log1 = new Log<String>(new String[5]);
-        Log<String> log1 = new Log<>(new String[5]);                // Shorthand for the above
+        Log<String> log1 = new Log<>(new String[5]);                    // Shorthand for the above
         log1.add("Reboot");
         log1.add("Coffee");
-        // Log<Date> log2 = new Log<Date>(new Date[5]);             // Shorthand for the above
+        // Log<Date> log2 = new Log<Date>(new Date[5]);                 // Shorthand for the above
         Log<Date> log2 = new Log<>(new Date[5]);
-        log2.add(new Date());                                       // now
+        log2.add(new Date());                                           // now
         log2.add(new Date(new Date().getTime() + 60 * 60 * 1000));      // now + 1 hour
         ArrayList<Date> dts = log2.getAll();
         // Printing both logs:
