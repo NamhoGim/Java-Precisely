@@ -596,9 +596,37 @@ as a constructor name `new C<T>(...);` and so on. However, there are the followi
 
 ## 21.4 Generic Classes
 
+A delcaration of a _generic class_ `C<T1,...,Tn>` may have this form:
+
+    class-modifiers class C<T1,...,Tn> class-base-clause
+        class body
+
+The `T1, ..., Tn` are _type parameters._ The _class-modifiers_, _class-body_, and _class-base_ are as for a non-generic class declaration (section 9.1).
+
+The type parameters `T1, ..., Tn` may be used whereber a type is expected in the _class-base-clause_ and in non-static members of the _class-body_, and so may the type parameters of any enclosing generic class, if the parsent class is a non-static member class.
+
+All type instnaces of a generic class `C<T1,...Tn>` are represented by the same _raw type_ `C`
+at run-time. All type instance of a generic class `C<T1,...Tn>` share the same static fields (if any) declared in _class-body_.
+As a consequence, the type parameters of the class cannot be used in any static members.
+
+An object instance of a type instance `C<t1, ..., tn>` of a generic class is created using the `new` operator to invoke a constructor of the type instance, as in `new C<t1, ..., tn>()` for and argument-less constructor.
+If the type arguments `t1,...,tn` can be inferred from the context, the argument list may be left empty as a "diamond" <> as in `new C<>()`.
+
 ## 21.5 Constraints on Type Parameters
 
 ## 21.6 How Can Type Parameters Be Used?
+
+Within the body `{ ... }` of a genric class `class C<T1,...,Tn> { ... }` or generic interface, a type parameter `Ti` may be used almost as if it were a public type. 
+
+* One can use type parameter `Ti` as a type argument in the supertype and in the implemented interfaces of the generic class or generic interface (but `Ti` itself cannot be used as superclass or implemented interface.)
+
+* One can use type paramter `Ti` in the return type, variable type, parameter types, and `throws` clauses of non-static methods and their local inner classes, as well as in the type and initializer of non-static fields and non-static constructors. In these contexts, `Ti` can be used in type instances `C1<...,Ti,...>` of generic types. `C1`.
+
+* One can use type parameter `Ti` for the same purposes in non-static member classes, but not in static member classes nor in member interface.
+
+* One can use `(Ti)e` for type casts, but such casts are sometimes reported by the compiler to be unchecked. This is due to java's implementation of generic types; see section 21.11 and examples 123 and 131.
+
+* One cannot use `new Ti[10]` to create a new array whose element type is `Ti` (see example 132); one cannot use `(o instanceof Ti)` to test whether `o` is an instance of `Ti`; one cannot use `Ti.class` to obtain the canonical object representing tye type `Ti`; one cannont use `new Ti()` to create an instance of `Ti`; and one cannot call static methods on a type parameter `Ti`, as in `Ti.m()`, or otherwise refer to the static members of a type parameter. Again, this is due to Java's implementation of generic types; see sections 21.11.
 
 ## 21.7 Generic Interfaces
 

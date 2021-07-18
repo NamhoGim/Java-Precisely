@@ -1,4 +1,5 @@
-// Example 121 from page 93 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example120;
+// Example 120 from page 91 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.io.*;
@@ -19,19 +20,19 @@ interface Mapper<A, R> {
 // A generic linked-list class with elements of type T
 
 interface MyList<T> extends Iterable<T> {
-    int getCount();                       // Number of elements
+    int getCount();                         // Number of elements
 
-    T get(int i);                         // Get element at index i
+    T get(int i);                           // Get element at index i
 
-    void set(int i, T item);              // Set element at index i
+    void set(int i, T item);                // Set element at index i
 
-    void add(T item);                     // Add element at end
+    void add(T item);                       // Add element at end
 
-    void insert(int i, T item);           // Insert element at index i
+    void insert(int i, T item);             // Insert element at index i
 
-    void removeAt(int i);                 // Remove element at index i
+    void removeAt(int i);                   // Remove element at index i
 
-    <U> MyList<U> map(Mapper<T, U> f);     // Map f over all elements
+    <U> MyList<U> map(Mapper<T, U> f);      // Map f over all elements
 }
 
 class MyLinkedList<T> implements MyList<T> {
@@ -261,7 +262,7 @@ class MyString implements Comparable<MyString> {
     }
 }
 
-class Example121 {
+class Example120 {
     public static void main(String[] args) {
         MyLinkedList<Double> dLst
                 = new MyLinkedList<Double>(7.0, 9.0, 13.0, 0.0);
