@@ -616,7 +616,7 @@ If the type arguments `t1,...,tn` can be inferred from the context, the argument
 
 ## 21.6 How Can Type Parameters Be Used?
 
-Within the body `{ ... }` of a genric class `class C<T1,...,Tn> { ... }` or generic interface, a type parameter `Ti` may be used almost as if it were a public type. 
+Within the body `{ ... }` of a genric class `class C<T1,...,Tn> { ... }` or generic interface, a type parameter `Ti` may be used almost as if it were a public type.
 
 * One can use type parameter `Ti` as a type argument in the supertype and in the implemented interfaces of the generic class or generic interface (but `Ti` itself cannot be used as superclass or implemented interface.)
 
@@ -630,7 +630,40 @@ Within the body `{ ... }` of a genric class `class C<T1,...,Tn> { ... }` or gene
 
 ## 21.7 Generic Interfaces
 
+A declaration of a _generic interface_ `I<T1, ... ,Tn>` has this form:
+
+    interface-modifiers interface I<T1,...,Tn> extends-clause
+        interface-body
+
+A type instance of the generic interface has form `I<t1,...tn>` where the `t1...tn` are types.
+The types `t1...tn` must satisfy the parameter constraints,
+if any, on the generic interface `I<T1,...Tn>` as described in section 21.5.
+
+A generic interface is a subinterface of the interface mentioned in its _extends-clause_.
+Like a generic class, a generic interface is not covariant in its parameters. That is, `I<String>` is not a subtype of `I<Object>`,
+although String is a subtype of Object.
+
 ## 21.8 Generic Methods
+
+A generic method is a method that takes one or more type parameters.
+A generic method may be declared inside a generic or non-generic class of interface.
+A declaration of a generic method `m<T1,...Tn>` has this form:
+
+    method-modifiers `m<T1,...Tn>` returntype m(formal-list)
+        method-body
+
+The main syntactic difference is that a generic method has a list of type parameters `T1,...Tn` before its _returntype_.
+
+The type parameters `T1,...,Tn` may be used as types in the _returntype_, _formal-list_, and _method-body_, as may the type parameters of any enclosing generic class if the method is non-static.
+
+Generic methods of the same name `m` are not distinguished by their number of generic parameters, and a generic method is not distinguished from a non-generic method of the same name.
+For example, these three methods
+
+    void m() { ... }    
+    <T> void m() { ... }
+    <T,U> void m() { .... }
+
+are considered distinct, and at most one of them can be declared in a given scope.
 
 ## 21.9 Wildcard Type Arguments
 
