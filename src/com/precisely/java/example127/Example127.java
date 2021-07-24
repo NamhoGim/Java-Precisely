@@ -1,28 +1,26 @@
+package com.precisely.java.example127;
 // Example 127 from page 97 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.*;
 
 // Generic quicksort in functional style (the most efficient one)
-
 class Example127 {
     public static void main(String[] args) {
         Integer[] ia = {5, 7, 3, 9, 12, 45, 4, 8};
         qsort(ia, new IntegerComparator(), 0, ia.length - 1);
-        Example127.qsort(ia, new IntegerComparator(), 0, ia.length - 1);
-        Example127.qsort(ia, new IntegerComparator(), 0, ia.length - 1);
         for (int i : ia)
             System.out.print(i + "   ");
         System.out.println();
+
         String[] sa = {"New York", "Rome", "Dublin", "Riyadh", "Tokyo"};
-        Example127.qsort(sa, new StringReverseComparator(), 0, sa.length - 1);
+        qsort(sa, new StringReverseComparator(), 0, sa.length - 1);
         for (String s : sa)
             System.out.print(s + "   ");
         System.out.println();
     }
 
     // Generic functional-style quicksort: sorts arr[a..b]
-
     private static <T> void qsort(T[] arr, Comparator<T> cmp, int a, int b) {
         if (a < b) {
             int i = a, j = b;
@@ -45,7 +43,6 @@ class Example127 {
 }
 
 // Comparators for Integer and String
-
 class IntegerComparator implements Comparator<Integer> {
     public int compare(Integer v1, Integer v2) {
         return v1 < v2 ? -1 : v1 > v2 ? +1 : 0;
@@ -57,4 +54,3 @@ class StringReverseComparator implements Comparator<String> {
         return v2.compareTo(v1);
     }
 }
-

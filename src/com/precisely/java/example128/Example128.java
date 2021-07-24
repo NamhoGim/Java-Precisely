@@ -1,8 +1,8 @@
+package com.precisely.java.example128;
 // Example 128 from page 97 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 // Generic quicksort in object-oriented style
-
 class Example128 {
     public static void main(String[] args) {
         String[] sa = {"New York", "Rome", "Dublin", "Riyadh", "Tokyo"};
@@ -13,7 +13,6 @@ class Example128 {
     }
 
     // Generic object-oriented style quicksort: sorts arr[a..b]
-
     private static <T extends Comparable<T>> void qsort(T[] arr, int a, int b) {
         if (a < b) {
             int i = a, j = b;

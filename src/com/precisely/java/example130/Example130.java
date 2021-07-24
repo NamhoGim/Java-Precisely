@@ -1,3 +1,4 @@
+package com.precisely.java.example130;
 // Example 130 from page 99 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -116,6 +117,5 @@ class Example130 {
         b5.sellTo(car);
         b5.sellTo(sedan);
         b5.sellTo(b5.buyFrom());
-
     }
 }

@@ -691,6 +691,23 @@ Conversely, the wildcard type `<? super tb>` is useful as a type argument when a
 
 # 22. Generic Collections and Maps
 
+The Java class library package `java.util` provides collection classes and map (or dictionary) classes:
+
+* A _collection_, decribed by generic interface `Collection<T>` (section 22.1), is used to group and handle may distict _elements_ of type T as a whole.
+
+* A _list_, described by generic interface `List<T>` (section 22.2), is a collection whose elements can be traversed in insertion order.
+Implemented by the generic classes `LinkedList<T>` (for linked lists, double-ended queues, and stacks) and `ArrayList<T>` (for dynamicaly extensible arrays and stacks).
+
+* A _set_, described by generic interface `Set<T>` (section 22.3), is a collection that cannot contain duplicate elements. Implemented by the generic classes `HashSet<T>` and `LinkedHashSet<T>`.\
+\
+A _sorted set_, described by generic interface `SortedSet<T>` (section 22.4), is a set whose elements are orderd: either the elements implements method `compareTo` specified by interface `Comparable<T>`,
+or the set's ordering is given explicitly by an object of type `Comparator<T>` (section 22.9). Implemented by generic class `TreeSet<T>`.
+
+* A _map_, described by generic interface `Map<K,V>` (section 22.5), represents a mapping from a key of type `K` to at moset one value of type `V` for each key. Impelemented by the generic classes `HashMap<K,V>`,
+`IdnetityHashMap<K,V>`, and `LinkedHashMap<K,V>`.\
+\
+A _sorted map_, described by generic interface `SortedMap<K,V>` (section 22.6), is a map whose key are ordered, as for `SortedSet<K>`. Implemented by class `TreeMap<K,V>`.
+
 # 23. Functional Interfaces (Java 8.0)
 
 # 24. Streams for Bulk Data (Java 8.0)
