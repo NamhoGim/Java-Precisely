@@ -1,4 +1,5 @@
-// Example 124 from page 95 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example125;
+// Example 125 from page 95 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.io.*;
@@ -261,7 +262,7 @@ class MyString implements Comparable<MyString> {
     }
 }
 
-class Example124 {
+class Example125 {
     public static void main(String[] args) {
         MyLinkedList<Double> dLst
                 = new MyLinkedList<Double>(7.0, 9.0, 13.0, 0.0);
