@@ -634,6 +634,22 @@ Within the body `{ ... }` of a genric class `class C<T1,...,Tn> { ... }` or gene
 
 ## 21.9 Wildcard Type Arguments
 
+A _wildcard type is a type expression that denotes some unknown type. A wildcard type can be used only as a type argumentin a generic type instance,
+as in `Shop<?>` where `Shop<T>` is a generic type from example 130; a wildcard cannot be used as a type on its own. A wildcard type is useful when one must
+give a type argument in a generic type or method but does want to specify the exact type. There are three forms of wildcard types:
+
+    <?>
+    <? extends tb>
+    <? super tb>
+
+The first form of wildcard represents some unknown type; the second form represents some unknown type that is `tb` or a subtype of `tb`;
+and the third form represents some unknown type that is `tb` or a supertype of `tb`.
+
+examples...
+
+In general, wildcard type `<? extends tb>` is useful as type argument when a value of a generic type must be usable as a _producer_ of objects of type `tb`.
+Conversely, the wildcard type `<? super tb>` is useful as a type argument when a value of a generic type must be usable as a consumer of object of type `tb`.
+
 ## 21.10 The Raw Type
 
 ## 21.11 The Implementation of Generic Types and Methods
