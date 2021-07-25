@@ -685,9 +685,43 @@ Conversely, the wildcard type `<? super tb>` is useful as a type argument when a
 
 ## 21.10 The Raw Type
 
+For every generic type there is an underlying _raw type_.
+
+For a generic `C<T1,...,Tn>` the raw type is a non-generic class `C` that is a supertype of all type
+instances `C<t1,...,tn>` of the generic class `C<T1,...,Tn>`.
+
+For a generic interface `I<T1,...Tn>` the raw type is an interface `I` is a superinterface of all type instances `I<t1,...,tn>` of the generic interface `I<T1,...Tn>`.
+
+The raw type `C` is derived from the generic class declaration by _erasure_ as follows:
+
+* If `Ti` is a type parameter of `C<T1,...Tn>` without a constraint, then any use of `Ti` in the body of class `C` is replaced by Object.
+
+* If `Ti` is a type parameter of `C<T1,...,Tn>` with constraints `c1 & c2 & ... & cn`, then any use of `Ti` in the boyd of class `C` is replaced by `c1`.\
+For this reason one sometimes sees constraints of the form `Ti extends Object & c2 & ... & cn` that begin with an apprently superfluous occurence of Object.
+
 ## 21.11 The Implementation of Generic Types and Methods
 
+Generic types and method in Java resemble C++ type templates and function templates, as well as generic
+Types and methods in the C# programming language. However, generic types and method in Java have been
+designed to allow programs that use genericss to run on the same non-generic Java Virtual Machine as
+older Java programs. This design has several implications:
 
+* Only reference types, not primititve types, can be used as generic type arguments. Thus a type parameter `T` must be instantiated with type `Integer`, not type `int`, and `int` values must be wrapped as `Integer` objects. This so-called boxed representation carries a certain overhead in execution time and space because `Integer` object must be allocated on the heap to wrap `int` values, extra memory accesses are needed, and the `int` values must be unboxed before performing arithmetic or comparison.
+
+* There is a single type in the run-time system common to all the type instances `C<t1,...tn>` of a genric type `C<T1,...Tn>`, namely the raw type C. In particular, all object instance of all type instances have the same field layout and contain the same bytecode instructions.\
+\
+Thus at rum-time, the type instances `Pair<String,Integer>` and `Pair<Date,String>` in example 118 are actually represented by the same raw type Pair with fields of type Object. This loses some optimization opportunities that exist for C++ templates and for C# generics type and methods.\
+\
+On the other hand, the existence of the raw type makes it easy for new Java generic types to interoperate with legacy non-generic types; this is more difficult in C# programs.
+
+* Overloading resolution of a method `m` or constructor does not take type arguments in `m`'s parameter types into account and does not distinguish generic and raw types in `m`'s parameter types.
+For example, these three methods are not considered distinct, and at most one of them can be declared in a given scope:
+
+    void m(List xs) { ... }
+    void m(List<Integer> xs) { ... }
+    void m(List<String> xs) { ... }
+
+* At rum-time there is no information about the actual type arguments of a genric type or method. So type parameter can be used only to limited extent in reflection and not at all in `instanceof` test.
 
 # 22. Generic Collections and Maps
 
