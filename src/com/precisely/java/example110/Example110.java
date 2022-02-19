@@ -1,5 +1,7 @@
-// Example 110 from page 83 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example110;// Example 110 from page 83 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
+
+import com.precisely.java.example109.Util;
 
 class Bank {
     private int account1 = 10, account2 = 20;
@@ -36,4 +38,3 @@ class Example110 {
         new Clerk(bank).start();
     }
 }
-

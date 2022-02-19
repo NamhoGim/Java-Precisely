@@ -41,13 +41,13 @@ or underscore(_), and continues with zero or more letters or dollar signs or und
 Avoid dollar signs in class and interface names. Uppercase letters and lowercase letters are considered distinct.
 A legal name cannot be one of the following _reserved names_:
 
-| `abstract` | `char`    | `else`    | `for`        | `interface` | `protected` | `switch`       | `try`      |
-|------------:|-----------:|-----------:|--------------:|-------------:|-------------:|----------------:|------------:|
-| `assert`   | `class`   | `enum`    | `goto`       | `long`      | `public`    | `synchronized` | `void`     |
-| `boolean`  | `const`   | `extends` | `if`         | `native`    | `return`    | `this`         | `volatile` |
-| `byte`     | `default` | `final`   | `import`     | `null`      | `static`    | `throw`        |            |
-| `case`     | `do`      | `finally` | `instanceof` | `package`   | `strictfp`  | `transient`    |            |
-| `catch`    | `double`  | `float`   | `int`        | `private`   | `super`     | `true`         |            |
+|  `abstract` |     `char` |    `else` |        `for` | `interface` | `protected` |       `switch` |      `try` |
+|------------:|-----------:|----------:|-------------:|------------:|------------:|---------------:|-----------:|
+|    `assert` |    `class` |    `enum` |       `goto` |      `long` |    `public` | `synchronized` |     `void` |
+|   `boolean` |    `const` | `extends` |         `if` |    `native` |    `return` |         `this` | `volatile` |
+|      `byte` |  `default` |   `final` |     `import` |      `null` |    `static` |        `throw` |            |
+|      `case` |       `do` | `finally` | `instanceof` |   `package` |  `strictfp` |    `transient` |            |
+|     `catch` |   `double` |   `float` |        `int` |   `private` |     `super` |         `true` |            |
 
 # 3. Java Naming Convetions
 
@@ -502,25 +502,25 @@ Each _annotations-member_ has one of these forms, where an _annotations-member-e
 Several meta-annotations may be used when declaring an annotations type. Type `@Target({...})`
 meta-annotations specifies the legal targets for an annotations type; the default is any target:
 
-| `@Target` Value | Legal Targets |
-|:----------------|:--------------|
-| `ANNOTATION_TYPE` | Annotations type declarations |
-| `CONSTRUCTOR` | Constructor declarations |
-| `FIELD` | Field declarations or enum value declarations |
-| `LOCAL_VARIABLE` | Local variable declarations |
-| `METHOD` | Method declarations |
-| `PACKAGE` | Package declarations |
-| `PARAMETER` | Parameter declarations in method or constructor |
-| `TYPE` | Class, interface, or enum type declarations |
-| `TYPE_PARAMETER` | Type parameter of generic class, interface, method or constructor |
+| `@Target` Value   | Legal Targets                                                     |
+|:------------------|:------------------------------------------------------------------|
+| `ANNOTATION_TYPE` | Annotations type declarations                                     |
+| `CONSTRUCTOR`     | Constructor declarations                                          |
+| `FIELD`           | Field declarations or enum value declarations                     |
+| `LOCAL_VARIABLE`  | Local variable declarations                                       |
+| `METHOD`          | Method declarations                                               |
+| `PACKAGE`         | Package declarations                                              |
+| `PARAMETER`       | Parameter declarations in method or constructor                   |
+| `TYPE`            | Class, interface, or enum type declarations                       |
+| `TYPE_PARAMETER`  | Type parameter of generic class, interface, method or constructor |
 
 The `@Retentions(...)` meta-annotations specifies the retention policy for an annotation type:
 
-| Value | Meaning |
-|:------|:--------|
+| Value     | Meaning                                                                               |
+|:----------|:--------------------------------------------------------------------------------------|
 | `SOURCE ` | The annotations is discarded by the compiler and will not be stored in the class file |
-| `CLASS` | The annotations is stored in the class-file (default) but unavailable at run-time |
-| `RUNTIME` | The annotations is available for reflective inspections at run-time |
+| `CLASS`   | The annotations is stored in the class-file (default) but unavailable at run-time     |
+| `RUNTIME` | The annotations is available for reflective inspections at run-time                   |
 
 # 14. Enum Types
 
@@ -564,6 +564,26 @@ A _StringBuffer_ has the same methods as a _StringBuilder_, but is thread safe: 
 can safely modify the same string buffer. Both classes implement the Appendable and CharSequence interfaces (section 26.7).
 
 # 20. Threads, Concurrent Execution, and Synchronization
+
+## 20.1 Treads and Concurrent Execution
+
+### States and State Transitions of a Thread
+
+A thread is alive if it has been started and has not died. A thread dies by existing its `run()` method,
+either by returning or by throwing an exception. A live thread is in one of the states Enabled (ready to run),
+Running (actually executing), Sleeping (waiting for a timeout), Joining (waiting for another thread to die),
+Locking (trying to obtain the lock on object `o`), or Waiting (for notification on object `o`).
+The thread state transition are shown in the following table and figure.
+
+| From State | To State                                                                            | Reason for Transition                                                                                                                                                                                                                                                                                                                 |
+|:-----------|:------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Enabled    | Running                                                                             | System schedules thread for execution                                                                                                                                                                                                                                                                                                 |
+| Running    | Enabled<br/> Enabled<br/> Waiting<br/> Locking<br/> Sleeping<br/> Joining<br/> Dead | System preempts thread and schedules another one<br/> Thread executes `yield()`<br/> Thread executes `o.waits()`, releasing lock on `o`<br/> Thead attempts to executes `synchronized (o) { ... }`<br/> Thread executes `sleep()`<br/> Thread executes `u.join()`<br/> Thread exited `run()` by returning or by throwing an exception |
+| Sleeping   | Enabled<br/> Enabled                                                                | Sleeping period expired<br/> Thread was interrupted; throws InterruptedException when run                                                                                                                                                                                                                                             |
+| Joining    | Enabled<br/> Enabled                                                                | Thread `u` being joined died, or join timed out<br/>  Thread was interrupted; throws InterruptedException when run                                                                                                                                                                                                                    |
+| Waiting    | Locking<br/> Locking<br/> Locking                                                   | Another thread executed `o.notify()` or `o.notifyAll()`<br/> Wait for lock on `o` timed out<br/> Thread was interrupted; throws InterruptedException when run                                                                                                                                                                         |
+| Locking    | Enabled                                                                             | Lock on `o` became available and was given to this thread                                                                                                                                                                                                                                                                             |
+
 
 # 21. Generic Types and Methods
 

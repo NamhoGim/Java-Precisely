@@ -1,3 +1,4 @@
+package com.precisely.java.example108;
 // Example 108 from page 81 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
@@ -10,7 +11,7 @@ class Incrementer extends Thread {
     public void run() {
         for (; ; ) {                                    // Forever
             i++;                                        //   increment i
-            yield();
+            Thread.yield();
         }
     }
 }

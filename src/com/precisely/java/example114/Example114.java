@@ -1,4 +1,4 @@
-// Example 114 from page 87 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example114;// Example 114 from page 87 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.util.concurrent.Executors;

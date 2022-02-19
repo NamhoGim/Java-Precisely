@@ -1,5 +1,7 @@
-// Example 111 from page 85 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example111;// Example 111 from page 85 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
+
+import com.precisely.java.example109.Util;
 
 class Buffer {
     private int contents;

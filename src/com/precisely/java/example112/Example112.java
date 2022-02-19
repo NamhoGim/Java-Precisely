@@ -1,4 +1,4 @@
-// Example 112 from page 85 of Java Precisely third edition (The MIT Press 2016)
+package com.precisely.java.example112;// Example 112 from page 85 of Java Precisely third edition (The MIT Press 2016)
 // Author: Peter Sestoft (sestoft@itu.dk)
 
 import java.awt.Canvas;
