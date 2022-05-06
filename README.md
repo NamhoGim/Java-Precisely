@@ -584,6 +584,110 @@ The thread state transition are shown in the following table and figure.
 | Waiting    | Locking<br/> Locking<br/> Locking                                                   | Another thread executed `o.notify()` or `o.notifyAll()`<br/> Wait for lock on `o` timed out<br/> Thread was interrupted; throws InterruptedException when run                                                                                                                                                                         |
 | Locking    | Enabled                                                                             | Lock on `o` became available and was given to this thread                                                                                                                                                                                                                                                                             |
 
+## 20.2 Locks and `synchronized` Statement
+
+Concurrent threads are executed independently. Therefore, when multiple concurrent threads access the same fields or
+array elements, there is considerable risk of creating an inconsistent state.
+To avoid this, thread may synchronize the access to shared state, such as objects and arrays. A single _lock_ is 
+associated with every object, array and class. A lock can be held by at most one thread at a time.
+A thread may explicitly request the lock on an object or array by executing a `synchronized` statement, which has this form:
+
+    synchronized (expression)
+      block-statement
+
+The _expression_ must have reference type. The _expression_ must evaluate to a non-`null` reference `o`;
+otherwise a NullPointerException is thrown. After the evaluation of the _expression_, the thread becomes Locking on object `o`;
+When the thread obtains the lock on object `o` (if ever), the thread becomes Enabled and may become Running
+so that the `block-statment` is executed. When _block-statement_ terminates or exited by `return`, `break`, or `continue`,
+or by throwing an execption, then the lock on `o` is released.
+
+A `synchronized` non-static method declaration (section 9.8) is shorthand for a method whose body has the form
+
+    synchronized (this)
+      method-body
+
+That is, the thread will execute the method body only when it has obtained the lock on the current object.
+It will release the lock when it leaves the method body.
+
+A `synchronized` static method delcaration (section 9.8) in class `C` is shorthand for a method whose body has the form
+
+    synchronized (C.class)
+      method-body
+
+That is, the thread will execute the method body only when it has obtained the lock on the object `C.class`,
+which is the unique object of class Class associated with class `C`; see section 27.1. It will hold the lock until it
+leaves the method body and release it at that time.
+
+## 20.3 Operations on Threads
+
+The current thread, whose state is Running, may call these methods among others.
+
+* `Thread.yield()` changes the state of the current thread from Running to Enabled, and thereby allows the system to
+  schedule another Enabled thread, if any.
+* `Thread.sleep(n)`sleeps for `n` milliseconds: the current thread becomes Sleeping and after `n` milliseconds becomes
+  Enabled. May throw InterruptedException if the thread is interrupted while sleeping.
+* `Thread.currentThread()` returns the current thread object.
+* `Thread.interrupted()` returns and clears the _interrupted status_ of the current thread;
+  true` if there has been no call to `Thread.interrupted()` and no InterruptedException thrown since the last interrupt;
+  otherwise `false`.
+
+Let `u` be a thread (an object of a subclass of Thread). Then
+
+* `u.start()` changes the state of `u` to Enabled so that its `run` method will be called when a processor becomes available.
+* `u.interrupt()` interrupts the thread `u`: if `u` is Running or Enabled or Locking,
+  then its interrupted status is set to `true`. If `u` is Sleeping or Joining, it will become Enabled, and if it is Waiting,
+  it will become Locking; in these case `u` will throw InterruptedException when and if it becomes Running
+  and the interrupted status is set to `false`)
+* `u.isInterrupted()` returns the interrupted status of `u` (and does not clear it).
+* `u.join()` waits for thread `u` to die; may throw InterruptedExecption if the current thread is interrupted while waiting.
+* `u.join(n)` works as `u.join()` but times out and returns after at most `n` milliseconds.
+  There is no indication whether the call returned because of a timeout or because `u` died.
+
+## 20.4 Operations on Locked Objects
+
+A thread that holds the lock on an object `o` my call the following methods, inherited by `o` from class Object.
+
+* `o.wait()` release the lock on `o`, changes its own state to Waiting, and adds itself to the set of threads waiting for notification on `o`.
+  When notified (if ever), the thread must obtain the lock on `o`, so when the call to `wait` returns, it again holds the lock `o`.
+  May throw InterrupedException if the thread is interrupted while waiting.
+* `o.wait(n)` works like `o.wait()` except that the thread will change state to Locking after `n` milliseconds
+  regardless of whether there has been a notification on `o`. There is no indication whether the state change was caused by a timeout or a notification.
+* `o.notify()` choose an arbitrary thread among the threads waiting for notification on `o` (if any) and changes its state to Locking.
+  The chosen thread cannot actually obtain the lock on `o` until the current thread has released it. 
+* `o.notifyAll()` works like `o.notify()`, except that it changes the state to Locking for _all_ threads waiting for notification on `o`.
+
+## 20.5 The Java Memory Model and Visibility Across Threads
+
+* Thread A releases a lock after the write to `x` or `a[i]`, and then thread B acquires the same lock before the read.
+  Hence leaving and then entering `synchronized` method and blocks enforce visibility.
+* Field `x` itself is declared `volatile`, and the write in A precedes the read in B in real time.
+* Thread A writes to some `volatile` field after the write to `x` or `a[i]`, and then thread B reads the `volatile` field
+  before reading `x` or `a[i]`. Hence the visiblity of `x` or `a[i]` may "piggyback" on the visibility effect of writing
+  and then reading any `volatile` field.
+* Thread A starts thread B using method `start` from section 20.3; a thread can see every write that its creator thread did.
+* Thread A terminates, and B awaits the termination of A using `join` from section 20.3;
+  a thread can see every write performed by a thread it knows has terminated.
+* Concurrent collection operations from the `java.util.concurrent` package and atomic operations from the `java.util.concurrent.atomic` package also have visibility effects.
+
+### 20.5.1 The `volatile` Field Modifier
+
+The `volatile` field modifier applied to a field `x` ensures that every writes to `x` by thread A,
+end every other prior write performed by A, becomes visible to another thread B upon later reading `x`.
+The `volatile` modifier prevents the java JIT compiler from performing certain optimizations, and it causes extra work
+at run-time to make one processor core's write visible to other processor cores. This may slow down the code;
+see example 115.
+
+Declaring a field `a` of array type `volatile` does _not_ affect the visibility of writes to the array's elements `a[i]`.
+To ensure visibility of array element writes, one must build on the Java Memory Model guarantees listed above;
+use locking or `synchronized`; piggyback on writes and subsequent reads of other volatile fields; use atomic operations; and so on.
+
+### 20.5.2 The `final` Field Modifier
+
+If an instance field `x` is declared in `final`, then the value assigned to `x` by a constructor is visible by any thread
+that obtains the reference returned by the constructor. Since the `final` modifier has visibility effect and also ensures
+that the field cannot be modified (section 9.6), it can be used to implement thread-safe immutable objects.
+This is useful in connection with functional programming (chapter 23) with parallel stream (chapter 24) and can also be
+used to avoid locking in some scenarios.
 
 # 21. Generic Types and Methods
 
